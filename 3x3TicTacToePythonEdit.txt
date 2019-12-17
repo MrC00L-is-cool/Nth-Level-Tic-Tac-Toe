@@ -1,0 +1,73 @@
+#To check the os
+import os
+print(os.name)
+
+#For Color
+import curses
+screen = curses.initscr()
+
+#Test correct size
+num_rows, num_cols = screen.getmaxyx()
+if num_rows < NUMBER REQUIRED
+	print("Please increase your terminal size")
+
+#Set up GUI
+win = curses.newwin(0, 0, curses.LINES - 1, curses.COLS - 1)
+#Apply screen changes
+refresh()
+
+#Class for Single block
+class tac:
+	
+#Class for 3x3 Grid
+#+--------------+
+#| A1 | A2 | A3 |
+#|--------------|
+#| B1 | B2 | B3 |
+#|--------------|
+#| C1 | C2 | C3 |
+#+--------------+
+class grid:
+	def __init__(self, solved, A1, A2, A3, B1, B2, B3, C1, C2, C3):
+		self.solved = false
+		self.A1 = "?"
+		self.A2 = "?"
+		self.A3 = "?"
+		self.B1 = "?"
+		self.B2 = "?"
+		self.B3 = "?"
+		self.C1 = "?"
+		self.C2 = "?"
+		self.C3 = "?"
+
+	def checkwin(self):
+		if self.A1 == self.A2 and self.A2 == self.A3:
+			self.solved = true
+		elif self.B1 == self.B2 and self.B2 == self.B3:
+			self.solved = true
+		elif self.C1 == self.C2 and self.C2 == self.C3:
+			self.solved = true
+		elif self.A1 == self.B1 and self.B1 == self.C1:
+			self.solved = true
+		elif self.A2 == self.B2 and self.B2 == self.C2:
+			self.solved = true
+		elif self.A3 == self.B3 and self.B3 == self.C3:
+			self.solved = true
+		elif self.A1 == self.B2 and self.B2 == self.C3:
+			self.solved = true
+		elif self.A3 == self.B2 and self.B2 == self.C1:
+			self.solved = true
+		else:
+			self.solved = false
+
+	def checksolved(self):	
+		if self.solved == true:
+			pass
+		else:
+			pass
+	
+#End of Program
+curses.nocbreak()
+stdscr.keypad(False)
+curses.echo()
+curses.endwin()
