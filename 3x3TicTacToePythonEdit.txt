@@ -13,20 +13,25 @@ if has_colors() == true
 
 #Test correct size
 num_rows, num_cols = screen.getmaxyx()
-if num_rows < NUMBER REQUIRED
+if num_rows < 9
+	print("Please increase your terminal size")
+	exit
+fi
+if num_cols < 15
 	print("Please increase your terminal size")
 	exit
 fi
 
+
 #Set up GUI
 win = curses.newwin(0, 0, curses.LINES - 1, curses.COLS - 1)
-screen.addstr(0, 0, "┏━━━┳━━━┳━━━┓")
-screen.addstr(1, 0, "┃ ? ┃ ? ┃ ? ┃")
-screen.addstr(2, 0, "┣━━━╋━━━╋━━━┫")
-screen.addstr(3, 0, "┃ ? ┃ ? ┃ ? ┃")
-screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫")
-screen.addstr(5, 0, "┃ ? ┃ ? ┃ ? ┃")
-screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛")
+screen.addstr(0, 0, "┏━━━┳━━━┳━━━┓", curses.color_pair(0))
+screen.addstr(1, 0, "┃ ? ┃ ? ┃ ? ┃", curses.color_pair(0))
+screen.addstr(2, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
+screen.addstr(3, 0, "┃ ? ┃ ? ┃ ? ┃", curses.color_pair(0))
+screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
+screen.addstr(5, 0, "┃ ? ┃ ? ┃ ? ┃", curses.color_pair(0))
+screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(0))
 screen.addstr(8, 0, "Please enter the place you want to go: ")
 #Apply screen changes
 refresh()
@@ -81,7 +86,8 @@ class grid:
 #Set variables
 main = grid()
 
-#
+#Play game
+
 
 #End of Program
 curses.nocbreak()
