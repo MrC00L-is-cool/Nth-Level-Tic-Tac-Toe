@@ -5,19 +5,31 @@ print(os.name)
 #For Color
 import curses
 screen = curses.initscr()
+curses.start_color()
+if has_colors() == true
+	curses.init_pair(0, curses.COLOR_GREEN, curses.COLOR_BLACK)
+	curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
+	curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_RED)
 
 #Test correct size
 num_rows, num_cols = screen.getmaxyx()
 if num_rows < NUMBER REQUIRED
 	print("Please increase your terminal size")
+	exit
+fi
 
 #Set up GUI
 win = curses.newwin(0, 0, curses.LINES - 1, curses.COLS - 1)
+screen.addstr(0, 0, "┏━━━┳━━━┳━━━┓")
+screen.addstr(1, 0, "┃ ? ┃ ? ┃ ? ┃")
+screen.addstr(2, 0, "┣━━━╋━━━╋━━━┫")
+screen.addstr(3, 0, "┃ ? ┃ ? ┃ ? ┃")
+screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫")
+screen.addstr(5, 0, "┃ ? ┃ ? ┃ ? ┃")
+screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛")
+screen.addstr(8, 0, "Please enter the place you want to go: ")
 #Apply screen changes
 refresh()
-
-#Class for Single block
-class tac:
 	
 #Class for 3x3 Grid
 #+--------------+
@@ -65,7 +77,12 @@ class grid:
 			pass
 		else:
 			pass
-	
+
+#Set variables
+main = grid()
+
+#
+
 #End of Program
 curses.nocbreak()
 stdscr.keypad(False)
