@@ -1,6 +1,7 @@
 #Set variables
 main = grid()
 coordPlayed = ["end"]
+move = 0
 
 #To check the os
 import os
@@ -96,7 +97,26 @@ class grid:
 			pass
 
 def possibleMove(*coords):
-	
+	if move = 1:
+		coordPlayed.insert(len.coordPlayed - 1, A1)
+	elif move = 2:
+		coordPlayed.insert(len.coordPlayed - 1, A2)
+	elif move = 3:
+		coordPlayed.insert(len.coordPlayed - 1, A3)
+	elif move = 4:
+		coordPlayed.insert(len.coordPlayed - 1, B1)
+	elif move = 5:
+		coordPlayed.insert(len.coordPlayed - 1, B2)
+	elif move = 6:
+		coordPlayed.insert(len.coordPlayed - 1, B3)
+	elif move = 7:
+		coordPlayed.insert(len.coordPlayed - 1, C1)
+	elif move = 8:
+		coordPlayed.insert(len.coordPlayed - 1, C2)
+	elif move = 9:
+		coordPlayed.insert(len.coordPlayed - 1, C3)
+	else
+		pass
 
 #Play game
 
