@@ -17,6 +17,7 @@ except:
 		exit
 	else
 		print("Something went wrong! Please try to install the Curses module")
+		exit
 screen = curses.initscr()
 curses.start_color()
 if has_colors() == true
