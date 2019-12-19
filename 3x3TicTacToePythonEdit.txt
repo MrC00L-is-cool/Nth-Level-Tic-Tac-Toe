@@ -1,6 +1,6 @@
 #Set variables
 main = grid()
-coordPlayed = ["end"]
+coordPlayed = ["roof"]
 move = 0
 
 #To check the os
