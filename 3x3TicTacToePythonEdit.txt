@@ -124,6 +124,15 @@ def possibleMove(*coords):
 	else
 		pass
 
+def winScreen(winner)
+	screen.addstr(0, 0, "┏━━━┳━━━┳━━━┓", curses.color_pair(0))
+	screen.addstr(1, 0, "Congradulations   ", curses.color_pair(0))
+	screen.addstr(2, 0, "       Player         ", curses.color_pair(0))
+	screen.addstr(3, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
+	screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
+	screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
+	screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(0))
+
 def resetVars():
 	main = grid()
 	coordPlayed = ["roof"]
@@ -134,6 +143,35 @@ def resetVars():
 def playerTurn():
 	screen.refresh
 	square = screen.getch()
+	if square == "1"
+		main.A1 = curPlayer
+	elif square == "2"
+		main.A2 = curPlayer
+	elif square == "3"
+		main.A3 = curPlayer
+	elif square == "4"
+		main.B1 = curPlayer
+	elif square == "5"
+		main.B2 = curPlayer
+	elif square == "6"
+		main.B3 = curPlayer
+	elif square == "7"
+		main.C1 = curPlayer
+	elif square == "8"
+		main.C2 = curPlayer
+	elif square == "9"
+		main.C3 == curPlayer
+	main.checkwin()
+	if main.solved == "X"
+		winScreen("X")
+	elif main.solved == "O"
+		winScreen("O")
+	else
+		if curPlayer == "X":
+			curPlayer = "O"
+		else
+			curPlayer = "X"
+	screen.refresh
 
 #End of Program
 curses.nocbreak()
