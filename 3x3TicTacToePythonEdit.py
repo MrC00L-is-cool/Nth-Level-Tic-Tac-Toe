@@ -1,62 +1,4 @@
 #Set variables
-main = grid()
-coordPlayed = ["roof"]
-move = 0
-curPlayer = "X"
-
-#To check the os
-import os
-print(os.name)
-
-#For Color
-try:
-	import curses
-except:
-	if os.name == 'nt':
-		print("You have been detected running windows, please run this command first")
-		print("python -m pip install windows-curses")
-		exit
-	else:
-		print("Something went wrong! Please try to install the Curses module")
-		exit
-screen = curses.initscr()
-curses.start_color()
-if has_colors() == true:
-	#Basic
-	curses.init_pair(0, curses.COLOR_GREEN, curses.COLOR_BLACK)
-	#1st Player
-	curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
-	#2nd Player
-	curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_RED)
-	#Selected
-	curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)
-else:
-	pass
-
-#Test correct size
-num_rows, num_cols = screen.getmaxyx()
-if num_rows < 9:
-	print("Please increase your terminal size")
-	exit
-if num_cols < 15:
-	print("Please increase your terminal size")
-	exit
-
-
-#Set up GUI
-win = curses.newwin(0, 0, curses.LINES - 1, curses.COLS - 1)
-screen.addstr(0, 0, "┏━━━┳━━━┳━━━┓", curses.color_pair(0))
-screen.addstr(1, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
-screen.addstr(2, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
-screen.addstr(3, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
-screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
-screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
-screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(0))
-screen.addstr(8, 0, "Please enter the place you want to go: ", curses.color_pair(0))
-screen.addstr(9, 0, "It is " + curPlayer + "'s turn", curses.color_pair(0)
-#Apply screen changes
-screen.refresh()
-	
 #Class for 3x3 Grid
 #+--------------+
 #| A1 | A2 | A3 |
@@ -105,28 +47,86 @@ class grid:
 			pass
 
 def possibleMove(*coords):
-	if move = 1:
+	if move == 1:
 		coordPlayed.insert(len.coordPlayed - 1, A1)
-	elif move = 2:
+	elif move == 2:
 		coordPlayed.insert(len.coordPlayed - 1, A2)
-	elif move = 3:
+	elif move == 3:
 		coordPlayed.insert(len.coordPlayed - 1, A3)
-	elif move = 4:
+	elif move == 4:
 		coordPlayed.insert(len.coordPlayed - 1, B1)
-	elif move = 5:
+	elif move == 5:
 		coordPlayed.insert(len.coordPlayed - 1, B2)
-	elif move = 6:
+	elif move == 6:
 		coordPlayed.insert(len.coordPlayed - 1, B3)
-	elif move = 7:
+	elif move == 7:
 		coordPlayed.insert(len.coordPlayed - 1, C1)
-	elif move = 8:
+	elif move == 8:
 		coordPlayed.insert(len.coordPlayed - 1, C2)
-	elif move = 9:
+	elif move == 9:
 		coordPlayed.insert(len.coordPlayed - 1, C3)
 	else:
 		pass
 
-def winScreen(winner)
+main = grid()
+coordPlayed = ["roof"]
+move = 0
+curPlayer = "X"
+
+#To check the os
+import os
+print(os.name)
+
+#For Color
+try:
+	import curses
+except:
+	if os.name=='nt':
+		print("You have been detected running windows, please run this command first")
+		print("python -m pip install windows-curses")
+		exit
+	else:
+		print("Something went wrong! Please try to install the Curses module")
+		exit
+screen = curses.initscr()
+curses.start_color()
+if cuses.has_colors():
+	#Basic
+	curses.init_pair(0, curses.COLOR_GREEN, curses.COLOR_BLACK)
+	#1st Player
+	curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
+	#2nd Player
+	curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_RED)
+	#Selected
+	curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)
+else:
+	pass
+
+#Test correct size
+num_rows, num_cols = screen.getmaxyx()
+if num_rows < 9:
+	print("Please increase your terminal size")
+	exit
+if num_cols < 15:
+	print("Please increase your terminal size")
+	exit
+
+
+#Set up GUI
+win = curses.newwin(0, 0, curses.LINES - 1, curses.COLS - 1)
+screen.addstr(0, 0, "┏━━━┳━━━┳━━━┓", curses.color_pair(0))
+screen.addstr(1, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
+screen.addstr(2, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
+screen.addstr(3, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
+screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
+screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
+screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(0))
+screen.addstr(8, 0, "Please enter the place you want to go: ", curses.color_pair(0))
+screen.addstr(9, 0, "It is " + curPlayer + "'s turn", curses.color_pair(0))
+#Apply screen changes
+screen.refresh()
+	
+def winScreen(winner):
 	screen.addstr(0, 0, "             ", curses.color_pair(0))
 	screen.addstr(1, 0, "Congradulations   ", curses.color_pair(0))
 	screen.addstr(2, 0, "       Player         ", curses.color_pair(0))
@@ -181,7 +181,7 @@ def playerTurn():
 	playerTurn()
 
 #End of Program
-def endProg()
+def endProg():
 	curses.nocbreak()
 	stdscr.keypad(False)
 	curses.echo()
