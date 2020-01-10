@@ -12,16 +12,16 @@ print(os.name)
 try:
 	import curses
 except:
-	if os.name == 'nt'
+	if os.name == 'nt':
 		print("You have been detected running windows, please run this command first")
 		print("python -m pip install windows-curses")
 		exit
-	else
+	else:
 		print("Something went wrong! Please try to install the Curses module")
 		exit
 screen = curses.initscr()
 curses.start_color()
-if has_colors() == true
+if has_colors() == true:
 	#Basic
 	curses.init_pair(0, curses.COLOR_GREEN, curses.COLOR_BLACK)
 	#1st Player
@@ -30,15 +30,15 @@ if has_colors() == true
 	curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_RED)
 	#Selected
 	curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)
-else
+else:
 	pass
 
 #Test correct size
 num_rows, num_cols = screen.getmaxyx()
-if num_rows < 9
+if num_rows < 9:
 	print("Please increase your terminal size")
 	exit
-if num_cols < 15
+if num_cols < 15:
 	print("Please increase your terminal size")
 	exit
 
@@ -55,7 +55,7 @@ screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair
 screen.addstr(8, 0, "Please enter the place you want to go: ", curses.color_pair(0))
 screen.addstr(9, 0, "It is " + curPlayer + "'s turn", curses.color_pair(0)
 #Apply screen changes
-refresh()
+screen.refresh()
 	
 #Class for 3x3 Grid
 #+--------------+
@@ -123,7 +123,7 @@ def possibleMove(*coords):
 		coordPlayed.insert(len.coordPlayed - 1, C2)
 	elif move = 9:
 		coordPlayed.insert(len.coordPlayed - 1, C3)
-	else
+	else:
 		pass
 
 def winScreen(winner)
@@ -147,33 +147,33 @@ def resetVars():
 def playerTurn():
 	screen.refresh
 	square = screen.getch()
-	if square == "1"
+	if square == "1":
 		main.A1 = curPlayer
-	elif square == "2"
+	elif square == "2":
 		main.A2 = curPlayer
-	elif square == "3"
+	elif square == "3":
 		main.A3 = curPlayer
-	elif square == "4"
+	elif square == "4":
 		main.B1 = curPlayer
-	elif square == "5"
+	elif square == "5":
 		main.B2 = curPlayer
-	elif square == "6"
+	elif square == "6":
 		main.B3 = curPlayer
-	elif square == "7"
+	elif square == "7":
 		main.C1 = curPlayer
-	elif square == "8"
+	elif square == "8":
 		main.C2 = curPlayer
-	elif square == "9"
+	elif square == "9":
 		main.C3 == curPlayer
 	main.checkwin()
-	if main.solved == "X"
+	if main.solved == "X":
 		winScreen("X")
-	elif main.solved == "O"
+	elif main.solved == "O":
 		winScreen("O")
-	else
+	else:
 		if curPlayer == "X":
 			curPlayer = "O"
-		else
+		else:
 			curPlayer = "X"
 	screen.refresh
 
