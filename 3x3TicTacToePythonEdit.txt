@@ -12,7 +12,7 @@ print(os.name)
 try:
 	import curses
 except:
-	if os.name = 'nt'
+	if os.name == 'nt'
 		print("You have been detected running windows, please run this command first")
 		print("python -m pip install windows-curses")
 		exit
