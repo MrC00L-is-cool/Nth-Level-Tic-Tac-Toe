@@ -92,13 +92,13 @@ screen = curses.initscr()
 curses.start_color()
 if cuses.has_colors():
 	#Basic
-	curses.init_pair(0, curses.COLOR_GREEN, curses.COLOR_BLACK)
+	curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
 	#1st Player
-	curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
+	curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_BLUE)
 	#2nd Player
-	curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_RED)
+	curses.init_pair(3, curses.COLOR_WHITE, curses.COLOR_RED)
 	#Selected
-	curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)
+	curses.init_pair(4, curses.COLOR_YELLOW, curses.COLOR_BLACK)
 else:
 	pass
 
@@ -114,23 +114,23 @@ if num_cols < 15:
 
 #Set up GUI
 win = curses.newwin(0, 0, curses.LINES - 1, curses.COLS - 1)
-screen.addstr(0, 0, "┏━━━┳━━━┳━━━┓", curses.color_pair(0))
-screen.addstr(1, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
-screen.addstr(2, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
-screen.addstr(3, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
-screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
-screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
-screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(0))
-screen.addstr(8, 0, "Please enter the place you want to go: ", curses.color_pair(0))
-screen.addstr(9, 0, "It is " + curPlayer + "'s turn", curses.color_pair(0))
+screen.addstr(0, 0, "┏━━━┳━━━┳━━━┓", curses.color_pair(1))
+screen.addstr(1, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(1))
+screen.addstr(2, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(1))
+screen.addstr(3, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(1))
+screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(1))
+screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(1))
+screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(1))
+screen.addstr(8, 0, "Please enter the place you want to go: ", curses.color_pair(1))
+screen.addstr(9, 0, "It is " + curPlayer + "'s turn", curses.color_pair(1))
 #Apply screen changes
 screen.refresh()
 	
 def winScreen(winner):
-	screen.addstr(0, 0, "             ", curses.color_pair(0))
-	screen.addstr(1, 0, "Congradulations   ", curses.color_pair(0))
-	screen.addstr(2, 0, "       Player         ", curses.color_pair(0))
-	screen.addstr(3, 0, winner + "!", curses.color_pair(0))
+	screen.addstr(0, 0, "             ", curses.color_pair(1))
+	screen.addstr(1, 0, "Congradulations   ", curses.color_pair(1))
+	screen.addstr(2, 0, "       Player         ", curses.color_pair(1))
+	screen.addstr(3, 0, winner + "!", curses.color_pair(1))
 	#screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
 	#screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
 	#screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(0))
