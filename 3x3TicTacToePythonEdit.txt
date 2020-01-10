@@ -30,6 +30,8 @@ if has_colors() == true
 	curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_RED)
 	#Selected
 	curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)
+else
+	pass
 
 #Test correct size
 num_rows, num_cols = screen.getmaxyx()
@@ -125,13 +127,16 @@ def possibleMove(*coords):
 		pass
 
 def winScreen(winner)
-	screen.addstr(0, 0, "┏━━━┳━━━┳━━━┓", curses.color_pair(0))
+	screen.addstr(0, 0, "             ", curses.color_pair(0))
 	screen.addstr(1, 0, "Congradulations   ", curses.color_pair(0))
 	screen.addstr(2, 0, "       Player         ", curses.color_pair(0))
-	screen.addstr(3, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
-	screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
-	screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
-	screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(0))
+	screen.addstr(3, 0, winner + "!", curses.color_pair(0))
+	#screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
+	#screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
+	#screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(0))
+	screen.refresh
+	curses.napms(6000)
+	endProg()
 
 def resetVars():
 	main = grid()
@@ -139,7 +144,6 @@ def resetVars():
 	move = 0
 	curPlayer = "X"
 
-#Play game
 def playerTurn():
 	screen.refresh
 	square = screen.getch()
@@ -173,9 +177,14 @@ def playerTurn():
 			curPlayer = "X"
 	screen.refresh
 
+#Play game
+	playerTurn()
+
 #End of Program
-curses.nocbreak()
-stdscr.keypad(False)
-curses.echo()
-curses.curs_set(1)
-curses.endwin()
+def endProg()
+	curses.nocbreak()
+	stdscr.keypad(False)
+	curses.echo()
+	curses.curs_set(1)
+	curses.endwin()
+	exit
