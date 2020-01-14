@@ -9,7 +9,7 @@
 #| C1 | C2 | C3 |
 #+--------------+
 class grid:
-	def __init__(self, solved = False, A1 = "?", A2 = "?", A3= "?", B1 = "?", B2 = "?", B3 = "?", C1 = "?", C2 = "?", C3 = "?"):
+	def __init__(self, solved = "no", A1 = "1", A2 = "2", A3= "3", B1 = "4", B2 = "5", B3 = "6", C1 = "7", C2 = "8", C3 = "9"):
 		self.solved = solved
 		self.A1 = A1
 		self.A2 = A2
@@ -39,7 +39,7 @@ class grid:
 		elif self.A3 == self.B2 and self.B2 == self.C1:
 			self.solved = curPlayer
 		else:
-			self.solved =talse
+			self.solved = "no"
 #May not need
 	def checksolved(self):	
 		if self.solved == True:
@@ -50,7 +50,7 @@ class grid:
 #End of Program
 def endProg():
 	curses.nocbreak()
-	stdscr.keypad(False)
+	curses.keypad(False)
 	curses.echo()
 	curses.curs_set(1)
 	curses.endwin()
@@ -143,9 +143,9 @@ def winScreen(winner):
 	screen.addstr(1, 0, "Congradulations   ", curses.color_pair(1))
 	screen.addstr(2, 0, "       Player         ", curses.color_pair(1))
 	screen.addstr(3, 0, winner + "!", curses.color_pair(1))
-	#screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(0))
-	#screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(0))
-	#screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(0))
+	#screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(1))
+	#screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(1))
+	#screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(1))
 	screen.refresh
 	curses.napms(6000)
 	endProg()
