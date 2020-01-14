@@ -1,3 +1,4 @@
+#Thanks to Asher Olson for help
 #Set variables
 #Class for 3x3 Grid
 #+--------------+
@@ -8,17 +9,17 @@
 #| C1 | C2 | C3 |
 #+--------------+
 class grid:
-	def __init__(self, solved = False, A1 = A"?", A2 = "?", A3= "?", B1 = "?", B2 = "?", B3 = "?", C1 = "?", C2 = "?", C3 = "?"):
+	def __init__(self, solved = False, A1 = "?", A2 = "?", A3= "?", B1 = "?", B2 = "?", B3 = "?", C1 = "?", C2 = "?", C3 = "?"):
 		self.solved = solved
 		self.A1 = A1
 		self.A2 = A2
 		self.A3 = A3
-		self.B1 = A4
-		self.B2 = A5
-		self.B3 = A6
-		self.C1 = A7
-		self.C2 = A8
-		self.C3 = A9
+		self.B1 = B1
+		self.B2 = B2
+		self.B3 = B3
+		self.C1 = C1
+		self.C2 = C2
+		self.C3 = C3
 
 	def checkwin(self):
 		if self.A1 == self.A2 and self.A2 == self.A3:
@@ -68,7 +69,7 @@ def possibleMove(*coords):
 	else:
 		pass
 
-main = grid(false, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+main = grid()
 coordPlayed = ["roof"]
 move = 0
 curPlayer = "X"
@@ -90,7 +91,7 @@ except:
 		exit
 screen = curses.initscr()
 curses.start_color()
-if cuses.has_colors():
+if curses.has_colors():
 	#Basic
 	curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
 	#1st Player
@@ -178,7 +179,7 @@ def playerTurn():
 	screen.refresh
 
 #Play game
-	playerTurn()
+playerTurn()
 
 #End of Program
 def endProg():
