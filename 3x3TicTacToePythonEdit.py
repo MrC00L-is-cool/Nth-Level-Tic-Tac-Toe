@@ -176,7 +176,7 @@ def playerTurn():
 	elif square == "8":
 		main.C2 = curPlayer
 	elif square == "9":
-		main.C3 == curPlayer
+		main.C3 = curPlayer
 	main.checkwin()
 	if main.solved == "X":
 		winScreen("X")
