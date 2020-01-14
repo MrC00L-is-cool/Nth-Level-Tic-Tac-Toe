@@ -8,17 +8,17 @@
 #| C1 | C2 | C3 |
 #+--------------+
 class grid:
-	def __init__(self, solved, A1, A2, A3, B1, B2, B3, C1, C2, C3):
-		self.solved = false
-		self.A1 = "?"
-		self.A2 = "?"
-		self.A3 = "?"
-		self.B1 = "?"
-		self.B2 = "?"
-		self.B3 = "?"
-		self.C1 = "?"
-		self.C2 = "?"
-		self.C3 = "?"
+	def __init__(self, solved = false, A1 = A"?", A2 = "?", A3= "?", B1 = "?", B2 = "?", B3 = "?", C1 = "?", C2 = "?", C3 = "?"):
+		self.solved = solved
+		self.A1 = A1
+		self.A2 = A2
+		self.A3 = A3
+		self.B1 = A4
+		self.B2 = A5
+		self.B3 = A6
+		self.C1 = A7
+		self.C2 = A8
+		self.C3 = A9
 
 	def checkwin(self):
 		if self.A1 == self.A2 and self.A2 == self.A3:
@@ -68,7 +68,7 @@ def possibleMove(*coords):
 	else:
 		pass
 
-main = grid()
+main = grid(false, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 coordPlayed = ["roof"]
 move = 0
 curPlayer = "X"
