@@ -8,7 +8,7 @@
 #| C1 | C2 | C3 |
 #+--------------+
 class grid:
-	def __init__(self, solved = false, A1 = A"?", A2 = "?", A3= "?", B1 = "?", B2 = "?", B3 = "?", C1 = "?", C2 = "?", C3 = "?"):
+	def __init__(self, solved = False, A1 = A"?", A2 = "?", A3= "?", B1 = "?", B2 = "?", B3 = "?", C1 = "?", C2 = "?", C3 = "?"):
 		self.solved = solved
 		self.A1 = A1
 		self.A2 = A2
@@ -38,10 +38,10 @@ class grid:
 		elif self.A3 == self.B2 and self.B2 == self.C1:
 			self.solved = curPlayer
 		else:
-			self.solved = false
+			self.solved =talse
 #May not need
 	def checksolved(self):	
-		if self.solved == true:
+		if self.solved == True:
 			pass
 		else:
 			pass
