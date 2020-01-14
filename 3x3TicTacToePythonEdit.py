@@ -50,7 +50,7 @@ class grid:
 #End of Program
 def endProg():
 	curses.nocbreak()
-	curses.keypad(False)
+	my_screen.keypad(0)
 	curses.echo()
 	curses.curs_set(1)
 	curses.endwin()
