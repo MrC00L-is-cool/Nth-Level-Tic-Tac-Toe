@@ -47,6 +47,17 @@ class grid:
 		else:
 			pass
 
+#End of Program
+def endProg():
+	curses.nocbreak()
+	stdscr.keypad(False)
+	curses.echo()
+	curses.curs_set(1)
+	curses.endwin()
+	print("Finished")
+	exit
+
+
 def possibleMove(*coords):
 	if move == 1:
 		coordPlayed.insert(len.coordPlayed - 1, A1)
@@ -180,12 +191,3 @@ def playerTurn():
 
 #Play game
 playerTurn()
-
-#End of Program
-def endProg():
-	curses.nocbreak()
-	stdscr.keypad(False)
-	curses.echo()
-	curses.curs_set(1)
-	curses.endwin()
-	exit
