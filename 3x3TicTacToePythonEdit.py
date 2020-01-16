@@ -157,6 +157,7 @@ def resetVars():
 	curPlayer = "X"
 
 def playerTurn():
+	global main, coordPlayed, move, curPlayer
 	screen.refresh
 	square = screen.getch()
 	if square == "1":
@@ -185,8 +186,10 @@ def playerTurn():
 	else:
 		if curPlayer == "X":
 			curPlayer = "O"
+			playerTurn()
 		else:
 			curPlayer = "X"
+			playerTurn()
 	screen.refresh
 
 #Play game
