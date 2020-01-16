@@ -1,4 +1,4 @@
-#Thanks to Asher Olson for help
+#Thanks to Asher Olsen for help
 #Set variables
 #Class for 3x3 Grid
 #+--------------+
@@ -22,21 +22,22 @@ class grid:
 		self.C3 = C3
 
 	def checkwin(self):
-		if self.A1 == self.A2 and self.A2 == self.A3:
+		global main, coordPlayed, move, curPlayer
+		if self.A1 == self.A2 == self.A3:
 			self.solved = curPlayer
-		elif self.B1 == self.B2 and self.B2 == self.B3:
+		elif self.B1 == self.B2 == self.B3:
 			self.solved = curPlayer
-		elif self.C1 == self.C2 and self.C2 == self.C3:
+		elif self.C1 == self.C2 == self.C3:
 			self.solved = curPlayer
-		elif self.A1 == self.B1 and self.B1 == self.C1:
+		elif self.A1 == self.B1 == self.C1:
 			self.solved = curPlayer
-		elif self.A2 == self.B2 and self.B2 == self.C2:
+		elif self.A2 == self.B2 == self.C2:
 			self.solved = curPlayer
-		elif self.A3 == self.B3 and self.B3 == self.C3:
+		elif self.A3 == self.B3 == self.C3:
 			self.solved = curPlayer
-		elif self.A1 == self.B2 and self.B2 == self.C3:
+		elif self.A1 == self.B2 == self.C3:
 			self.solved = curPlayer
-		elif self.A3 == self.B2 and self.B2 == self.C1:
+		elif self.A3 == self.B2 == self.C1:
 			self.solved = curPlayer
 		else:
 			self.solved = "no"
@@ -49,6 +50,7 @@ class grid:
 
 #End of Program
 def endProg():
+	global main, coordPlayed, move, curPlayer
 	curses.nocbreak()
 	my_screen.keypad(0)
 	curses.echo()
@@ -139,6 +141,7 @@ screen.addstr(9, 0, "It is " + curPlayer + "'s turn", curses.color_pair(1))
 screen.refresh()
 	
 def winScreen(winner):
+	global main, coordPlayed, move, curPlayer
 	screen.addstr(0, 0, "             ", curses.color_pair(1))
 	screen.addstr(1, 0, "Congradulations   ", curses.color_pair(1))
 	screen.addstr(2, 0, "       Player         ", curses.color_pair(1))
@@ -151,6 +154,7 @@ def winScreen(winner):
 	endProg()
 
 def resetVars():
+	global main, coordPlayed, move, curPlayer
 	main = grid()
 	coordPlayed = ["roof"]
 	move = 0
@@ -162,28 +166,38 @@ def playerTurn():
 	square = screen.getch()
 	if square == "1":
 		main.A1 = curPlayer
+		screen.addch(1, 3, curPlayer, curses.color_pair(2))
 	elif square == "2":
 		main.A2 = curPlayer
+		screen.addch(1, 9, curPlayer, curses.color_pair(2))
 	elif square == "3":
 		main.A3 = curPlayer
+		screen.addch(1, 15, curPlayer, curses.color_pair(2))
 	elif square == "4":
 		main.B1 = curPlayer
+		screen.addch(3, 3, curPlayer, curses.color_pair(3))
 	elif square == "5":
 		main.B2 = curPlayer
+		screen.addch(3, 9, curPlayer, curses.color_pair(3))
 	elif square == "6":
 		main.B3 = curPlayer
+		screen.addch(3, 15, curPlayer, curses.color_pair(3))
 	elif square == "7":
 		main.C1 = curPlayer
+		screen.addch(5, 3, curPlayer, curses.color_pair(4))
 	elif square == "8":
 		main.C2 = curPlayer
+		screen.addch(5, 9, curPlayer, curses.color_pair(4))
 	elif square == "9":
 		main.C3 = curPlayer
+		screen.addch(5, 15, curPlayer, curses.color_pair(4))
 	main.checkwin()
 	if main.solved == "X":
 		winScreen("X")
 	elif main.solved == "O":
 		winScreen("O")
 	else:
+		global main, coordPlayed, move, curPlayer
 		if curPlayer == "X":
 			curPlayer = "O"
 			playerTurn()
