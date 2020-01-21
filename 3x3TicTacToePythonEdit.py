@@ -195,6 +195,8 @@ def playerTurn():
 		winScreen("X")
 	elif main.solved == "O":
 		winScreen("O")
+	elif main.solved == "no" and main.A1 == main.A2 == main.A3 == main.B1 == main.B2 == main.B3 == main.C1 == main.C2 == main.C3 != isNumber:
+		winScreen("None")
 	else:
 		if curPlayer == "X":
 			curPlayer = "O"
