@@ -1,5 +1,8 @@
 #Thanks to Asher Olsen for help
 #Set variables
+coordPlayed = ["roof"]
+move = 0
+curPlayer = "X"
 #Class for 3x3 Grid
 #+--------------+
 #| A1 | A2 | A3 |
@@ -83,9 +86,6 @@ def possibleMove(*coords):
 		pass
 
 main = grid()
-coordPlayed = ["roof"]
-move = 0
-curPlayer = "X"
 
 #To check the os
 import os
