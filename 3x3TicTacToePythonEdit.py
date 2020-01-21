@@ -54,7 +54,7 @@ class grid:
 #End of Program
 def endProg():
 	curses.nocbreak()
-	my_screen.keypad(0)
+	screen.keypad(0)
 	curses.echo()
 	curses.curs_set(1)
 	curses.endwin()
@@ -196,14 +196,15 @@ def playerTurn():
 	elif main.solved == "O":
 		winScreen("O")
 	else:
-		global main, coordPlayed, move, curPlayer
 		if curPlayer == "X":
 			curPlayer = "O"
 			playerTurn()
 		else:
 			curPlayer = "X"
 			playerTurn()
-	screen.refresh
 
 #Play game
-playerTurn()
+try:
+	playerTurn()
+finally:
+	endProg()
