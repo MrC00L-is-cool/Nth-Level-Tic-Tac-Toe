@@ -25,7 +25,7 @@ class grid:
 		self.C3 = C3
 
 	def checkwin(self):
-		global main, coordPlayed, move, curPlayer
+		global curPlayer
 		if self.A1 == self.A2 == self.A3:
 			self.solved = curPlayer
 		elif self.B1 == self.B2 == self.B3:
@@ -53,7 +53,6 @@ class grid:
 
 #End of Program
 def endProg():
-	global main, coordPlayed, move, curPlayer
 	curses.nocbreak()
 	my_screen.keypad(0)
 	curses.echo()
