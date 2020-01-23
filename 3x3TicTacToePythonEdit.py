@@ -12,7 +12,7 @@ curPlayer = "X"
 #| C1 | C2 | C3 |
 #+--------------+
 class grid:
-	def __init__(self, solved = "no", A1 = "1", A2 = "2", A3= "3", B1 = "4", B2 = "5", B3 = "6", C1 = "7", C2 = "8", C3 = "9"):
+	def __init__(self, solved = "no", A1 = "?", A2 = "?", A3= "?", B1 = "?", B2 = "?", B3 = "?", C1 = "?", C2 = "?", C3 = "?"):
 		self.solved = solved
 		self.A1 = A1
 		self.A2 = A2
@@ -26,24 +26,26 @@ class grid:
 
 	def checkwin(self):
 		global curPlayer
-		if self.A1 == self.A2 == self.A3:
+		if self.A1 == self.A2 == self.A3 != "?":
 			self.solved = curPlayer
-		elif self.B1 == self.B2 == self.B3:
+		elif self.B1 == self.B2 == self.B3 != "?":
 			self.solved = curPlayer
-		elif self.C1 == self.C2 == self.C3:
+		elif self.C1 == self.C2 == self.C3 != "?":
 			self.solved = curPlayer
-		elif self.A1 == self.B1 == self.C1:
+		elif self.A1 == self.B1 == self.C1 != "?":
 			self.solved = curPlayer
-		elif self.A2 == self.B2 == self.C2:
+		elif self.A2 == self.B2 == self.C2 != "?":
 			self.solved = curPlayer
-		elif self.A3 == self.B3 == self.C3:
+		elif self.A3 == self.B3 == self.C3 != "?":
 			self.solved = curPlayer
-		elif self.A1 == self.B2 == self.C3:
+		elif self.A1 == self.B2 == self.C3 != "?":
 			self.solved = curPlayer
-		elif self.A3 == self.B2 == self.C1:
+		elif self.A3 == self.B2 == self.C1 != "?":
 			self.solved = curPlayer
-		elif self.A1 != "1" and self.A2 != "2" and self.A3 != "3" and self.B1 != "4" and self.B2 != "5" and self.B3 != "6" and self.C1 !=
+		elif all(s in ("X", "O") for s in [A1, A2, A3, B1, B2, B3, C1, C2, C3]):
 			self.solved = "no"
+		else:
+			 self.solved = "smate"
 #May not need
 	def checksolved(self):	
 		if self.solved == True:
@@ -195,7 +197,7 @@ def playerTurn():
 		winScreen("X")
 	elif main.solved == "O":
 		winScreen("O")
-	elif main.solved == "no" and main.A1 == main.A2 == main.A3 == main.B1 == main.B2 == main.B3 == main.C1 == main.C2 == main.C3 != isNumber:
+	elif main.solved == "smate"
 		winScreen("None")
 	else:
 		if curPlayer == "X":
