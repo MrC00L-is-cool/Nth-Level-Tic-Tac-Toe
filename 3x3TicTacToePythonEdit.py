@@ -42,7 +42,7 @@ class grid:
 			self.solved = curPlayer
 		elif self.A3 == self.B2 == self.C1:
 			self.solved = curPlayer
-		else:
+		elif self.A1 != "1" and self.A2 != "2" and self.A3 != "3" and self.B1 != "4" and self.B2 != "5" and self.B3 != "6" and self.C1 !=
 			self.solved = "no"
 #May not need
 	def checksolved(self):	
