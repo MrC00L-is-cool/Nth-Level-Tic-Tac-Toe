@@ -42,7 +42,7 @@ class grid:
 			self.solved = curPlayer
 		elif self.A3 == self.B2 == self.C1 != "?":
 			self.solved = curPlayer
-		elif all(s in ("X", "O") for s in [A1, A2, A3, B1, B2, B3, C1, C2, C3]):
+		elif all(s in ("X", "O") for s in [self.A1, self.A2, self.A3, self.B1, self.B2, self.B3, self.C1, self.C2, self.C3]):
 			self.solved = "no"
 		else:
 			 self.solved = "smate"
@@ -197,7 +197,7 @@ def playerTurn():
 		winScreen("X")
 	elif main.solved == "O":
 		winScreen("O")
-	elif main.solved == "smate"
+	elif main.solved == "smate":
 		winScreen("None")
 	else:
 		if curPlayer == "X":
