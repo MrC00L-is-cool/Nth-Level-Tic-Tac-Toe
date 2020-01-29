@@ -43,9 +43,9 @@ class grid:
 		elif self.A3 == self.B2 == self.C1 != "?":
 			self.solved = curPlayer
 		elif all(s in ("X", "O") for s in [self.A1, self.A2, self.A3, self.B1, self.B2, self.B3, self.C1, self.C2, self.C3]):
-			self.solved = "no"
+			self.solved = "smate"
 		else:
-			 self.solved = "smate"
+			 self.solved = "no"
 #May not need
 	def checksolved(self):	
 		if self.solved == True:
