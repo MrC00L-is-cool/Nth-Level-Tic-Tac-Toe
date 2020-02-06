@@ -165,6 +165,7 @@ def playerTurn():
 	global main, coordPlayed, move, curPlayer
 	screen.refresh
 	square = screen.getch()
+	print(square)
 	if square == "1":
 		main.A1 = curPlayer
 		screen.addch(1, 3, curPlayer, curses.color_pair(2))
