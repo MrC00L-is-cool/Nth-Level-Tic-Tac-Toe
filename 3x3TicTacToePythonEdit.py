@@ -168,31 +168,31 @@ def playerTurn():
 	square = screen.getkey(8, 40)
 	if square == "1":
 		main.A1 = curPlayer
-		screen.addch(1, 3, curPlayer, curses.color_pair(2))
+		screen.addstr(1, 3, curPlayer, curses.color_pair(4))
 	elif square == "2":
 		main.A2 = curPlayer
-		screen.addch(1, 9, curPlayer, curses.color_pair(2))
+		screen.addstr(1, 9, curPlayer, curses.color_pair(4))
 	elif square == "3":
 		main.A3 = curPlayer
-		screen.addch(1, 15, curPlayer, curses.color_pair(2))
+		screen.addstr(1, 15, curPlayer, curses.color_pair(4))
 	elif square == "4":
 		main.B1 = curPlayer
-		screen.addch(3, 3, curPlayer, curses.color_pair(3))
+		screen.addstr(3, 3, curPlayer, curses.color_pair(4))
 	elif square == "5":
 		main.B2 = curPlayer
-		screen.addch(3, 9, curPlayer, curses.color_pair(3))
+		screen.addstr(3, 9, curPlayer, curses.color_pair(4))
 	elif square == "6":
 		main.B3 = curPlayer
-		screen.addch(3, 15, curPlayer, curses.color_pair(3))
+		screen.addstr(3, 15, curPlayer, curses.color_pair(4))
 	elif square == "7":
 		main.C1 = curPlayer
-		screen.addch(5, 3, curPlayer, curses.color_pair(4))
+		screen.addstr(5, 3, curPlayer, curses.color_pair(4))
 	elif square == "8":
 		main.C2 = curPlayer
-		screen.addch(5, 9, curPlayer, curses.color_pair(4))
+		screen.addstr(5, 9, curPlayer, curses.color_pair(4))
 	elif square == "9":
 		main.C3 = curPlayer
-		screen.addch(5, 15, curPlayer, curses.color_pair(4))
+		screen.addstr(5, 15, curPlayer, curses.color_pair(4))
 	main.checkwin()
 	if main.solved == "X":
 		winScreen("X")
