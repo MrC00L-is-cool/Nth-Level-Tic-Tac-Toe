@@ -164,7 +164,7 @@ def resetVars():
 def playerTurn():
 	global main, coordPlayed, move, curPlayer
 	screen.refresh
-	square = screen.getch()
+	square = screen.getkey()
 	print(square)
 	if square == "1":
 		main.A1 = curPlayer
