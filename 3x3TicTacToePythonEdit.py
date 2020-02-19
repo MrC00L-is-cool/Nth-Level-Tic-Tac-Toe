@@ -143,6 +143,7 @@ screen.refresh()
 	
 def winScreen(winner):
 	global main, coordPlayed, move, curPlayer
+	screen.erase()
 	screen.addstr(0, 0, "             ", curses.color_pair(1))
 	screen.addstr(1, 0, "Congradulations   ", curses.color_pair(1))
 	screen.addstr(2, 0, "       Player         ", curses.color_pair(1))
@@ -150,7 +151,7 @@ def winScreen(winner):
 	#screen.addstr(4, 0, "┣━━━╋━━━╋━━━┫", curses.color_pair(1))
 	#screen.addstr(5, 0, "┃  ?  ┃  ?  ┃  ?  ┃", curses.color_pair(1))
 	#screen.addstr(6, 0, "┗━━━┻━━━┻━━━┛", curses.color_pair(1))
-	screen.refresh
+	screen.refresh()
 	curses.napms(6000)
 	endProg()
 
@@ -163,7 +164,7 @@ def resetVars():
 
 def playerTurn():
 	global main, coordPlayed, move, curPlayer
-	screen.refresh
+	screen.refresh()
 	square = screen.getkey(8, 40)
 	if square == "1":
 		main.A1 = curPlayer
