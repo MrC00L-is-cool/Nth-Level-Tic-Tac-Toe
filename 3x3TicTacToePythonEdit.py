@@ -46,14 +46,9 @@ class grid:
 			self.solved = "smate"
 		else:
 			 self.solved = "no"
-#May not need
-	def checksolved(self):	
-		if self.solved == True:
-			pass
-		else:
-			pass
 
 #End of Program
+#Sets terminal back to usable format
 def endProg():
 	curses.nocbreak()
 	screen.keypad(0)
@@ -93,6 +88,7 @@ import os
 print(os.name)
 
 #For Color
+#Attemps to check for curses
 try:
 	import curses
 except:
@@ -113,7 +109,7 @@ if curses.has_colors():
 	#2nd Player
 	curses.init_pair(3, curses.COLOR_WHITE, curses.COLOR_RED)
 	#Selected
-	curses.init_pair(4, curses.COLOR_YELLOW, curses.COLOR_BLACK)
+	curses.init_pair(4, curses.COLOR_MAGENTA, curses.COLOR_BLACK)
 else:
 	pass
 
