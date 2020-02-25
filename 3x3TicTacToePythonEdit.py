@@ -1,6 +1,6 @@
 #Thanks to Asher Olsen for help
 #Set variables
-coordPlayed = ["roof"]
+coordPlayed = ["main"]
 move = 0
 curPlayer = "X"
 levels = 2
@@ -193,8 +193,11 @@ def playerTurn():
 	screen.refresh()
 	square = screen.getkey(8, 40)
 	if square == "1":
-		main.A1 = curPlayer
-		screen.addstr(1, 3, curPlayer, curses.color_pair(4))
+		if isinstance({coordinate}, grid)
+			coordPlayed.append(A1)
+		else:
+			{coordinate}.A1 = curPlayer
+			screen.addstr(1, 3, curPlayer, curses.color_pair(4))
 	elif square == "2":
 		main.A2 = curPlayer
 		screen.addstr(1, 9, curPlayer, curses.color_pair(4))
