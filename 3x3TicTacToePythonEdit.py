@@ -3,6 +3,7 @@
 coordPlayed = ["roof"]
 move = 0
 curPlayer = "X"
+levels = 2
 #Class for 3x3 Grid
 #+--------------+
 #| A1 | A2 | A3 |
@@ -125,19 +126,20 @@ if num_cols < 15:
 
 #Set up GUI
 win = curses.newwin(0, 0, curses.LINES - 1, curses.COLS - 1)
+curses.curs_set(0)
 screen.addstr(0, 0, "╔═══════╦═══════╦═══════╗", curses.color_pair(1))
 screen.addstr(1, 0, "║┏━┳━┳━┓║┏━┳━┳━┓║┏━┳━┳━┓║", curses.color_pair(1))
-screen.addstr(2, 0, "║┃?┃?┃?┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
+screen.addstr(2, 0, "║┃"displayNested(main.A1.A1)"┃"displayNested(main.A1.A2)"┃"displayNested(main.A1.A3)"┃║┃"displayNested(main.A2.A1)"┃"displayNested(main.A2.A2)"┃"displayNested(main.A2.A3)"┃║┃"displayNested(main.A3.A1)"┃"displayNested(main.A3.A2)"┃"displayNested(main.A3.A3)"┃║", curses.color_pair(1))
 screen.addstr(3, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-screen.addstr(4, 0, "║┃?┃?┃?┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
+screen.addstr(4, 0, "║┃"displayNested(main.A1.B1)"┃"displayNested(main.A1.B2)"┃"displayNested(main.A1.B3)"┃║┃"displayNested(main.A2.B1)"┃"displayNested(main.A2.B2)"┃"displayNested(main.A2.B3)"┃║┃"displayNested(main.A3.B1)"┃"displayNested(main.A3.B2)"┃"displayNested(main.A3.B3)"┃║", curses.color_pair(1))
 screen.addstr(5, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-screen.addstr(6, 0, "║┃?┃?┃?┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
+screen.addstr(6, 0, "║┃"displayNested(main.A1.C1)"┃"displayNested(main.A1.C2)"┃"displayNested(main.A1.C3)"┃║┃"displayNested(main.A2.C1)"┃"displayNested(main.A2.C2)"┃"displayNested(main.A2.C3)"┃║┃"displayNested(main.A3.C1)"┃"displayNested(main.A3.C2)"┃"displayNested(main.A3.C3)"┃║", curses.color_pair(1))
 screen.addstr(7, 0, "║┗━┻━┻━┛║┗━┻━┻━┛║┗━┻━┻━┛║", curses.color_pair(1))
 screen.addstr(8, 0, "╠═══════╬═══════╬═══════╣", curses.color_pair(1))
 screen.addstr(9, 0, "║┏━┳━┳━┓║┏━┳━┳━┓║┏━┳━┳━┓║", curses.color_pair(1))
-screen.addstr(10, 0, "║┃?┃?┃?┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
+screen.addstr(10, 0, "║┃"displayNested(main.B1.A1)"┃"displayNested(main.B1.A2)"┃"displayNested(main.B1.A3)"┃║┃"displayNested(main.B2.A1)"┃"displayNested(main.B2.A2)"┃"displayNested(main.B2.A3)"┃║┃"displayNested(main.B3.A1)"┃"displayNested(main.B3.A2)"┃"displayNested(main.B3.A3)"┃║", curses.color_pair(1))
 screen.addstr(11, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-screen.addstr(12, 0, "║┃?┃?┃?┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
+screen.addstr(12, 0, "║┃"displayNested(main.B1.B1)"┃"displayNested(main.B1.B2)"┃"displayNested(main.B1.B3)"┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
 screen.addstr(13, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
 screen.addstr(14, 0, "║┃?┃?┃?┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
 screen.addstr(15, 0, "║┗━┻━┻━┛║┗━┻━┻━┛║┗━┻━┻━┛║", curses.color_pair(1))
@@ -175,6 +177,12 @@ def resetVars():
 	coordPlayed = ["roof"]
 	move = 0
 	curPlayer = "X"
+
+def displayNested(coord):
+	if isinstance(coord, grid):
+		return "~"
+	else:
+		return coord
 
 def playerTurn():
 	global main, coordPlayed, move, curPlayer
