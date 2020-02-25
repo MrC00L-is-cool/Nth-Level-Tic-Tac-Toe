@@ -127,38 +127,40 @@ if num_cols < 15:
 #Set up GUI
 win = curses.newwin(0, 0, curses.LINES - 1, curses.COLS - 1)
 curses.curs_set(0)
-screen.addstr(0, 0, "╔═══════╦═══════╦═══════╗", curses.color_pair(1))
-screen.addstr(1, 0, "║┏━┳━┳━┓║┏━┳━┳━┓║┏━┳━┳━┓║", curses.color_pair(1))
-screen.addstr(2, 0, "║┃"displayNested(main.A1.A1)"┃"displayNested(main.A1.A2)"┃"displayNested(main.A1.A3)"┃║┃"displayNested(main.A2.A1)"┃"displayNested(main.A2.A2)"┃"displayNested(main.A2.A3)"┃║┃"displayNested(main.A3.A1)"┃"displayNested(main.A3.A2)"┃"displayNested(main.A3.A3)"┃║", curses.color_pair(1))
-screen.addstr(3, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-screen.addstr(4, 0, "║┃"displayNested(main.A1.B1)"┃"displayNested(main.A1.B2)"┃"displayNested(main.A1.B3)"┃║┃"displayNested(main.A2.B1)"┃"displayNested(main.A2.B2)"┃"displayNested(main.A2.B3)"┃║┃"displayNested(main.A3.B1)"┃"displayNested(main.A3.B2)"┃"displayNested(main.A3.B3)"┃║", curses.color_pair(1))
-screen.addstr(5, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-screen.addstr(6, 0, "║┃"displayNested(main.A1.C1)"┃"displayNested(main.A1.C2)"┃"displayNested(main.A1.C3)"┃║┃"displayNested(main.A2.C1)"┃"displayNested(main.A2.C2)"┃"displayNested(main.A2.C3)"┃║┃"displayNested(main.A3.C1)"┃"displayNested(main.A3.C2)"┃"displayNested(main.A3.C3)"┃║", curses.color_pair(1))
-screen.addstr(7, 0, "║┗━┻━┻━┛║┗━┻━┻━┛║┗━┻━┻━┛║", curses.color_pair(1))
-screen.addstr(8, 0, "╠═══════╬═══════╬═══════╣", curses.color_pair(1))
-screen.addstr(9, 0, "║┏━┳━┳━┓║┏━┳━┳━┓║┏━┳━┳━┓║", curses.color_pair(1))
-screen.addstr(10, 0, "║┃"displayNested(main.B1.A1)"┃"displayNested(main.B1.A2)"┃"displayNested(main.B1.A3)"┃║┃"displayNested(main.B2.A1)"┃"displayNested(main.B2.A2)"┃"displayNested(main.B2.A3)"┃║┃"displayNested(main.B3.A1)"┃"displayNested(main.B3.A2)"┃"displayNested(main.B3.A3)"┃║", curses.color_pair(1))
-screen.addstr(11, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-screen.addstr(12, 0, "║┃"displayNested(main.B1.B1)"┃"displayNested(main.B1.B2)"┃"displayNested(main.B1.B3)"┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
-screen.addstr(13, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-screen.addstr(14, 0, "║┃?┃?┃?┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
-screen.addstr(15, 0, "║┗━┻━┻━┛║┗━┻━┻━┛║┗━┻━┻━┛║", curses.color_pair(1))
-screen.addstr(16, 0, "╠═══════╬═══════╬═══════╣", curses.color_pair(1))
-screen.addstr(17, 0, "║┏━┳━┳━┓║┏━┳━┳━┓║┏━┳━┳━┓║", curses.color_pair(1))
-screen.addstr(18, 0, "║┃?┃?┃?┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
-screen.addstr(19, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-screen.addstr(20, 0, "║┃?┃?┃?┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
-screen.addstr(21, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-screen.addstr(22, 0, "║┃?┃?┃?┃║┃?┃?┃?┃║┃?┃?┃?┃║", curses.color_pair(1))
-screen.addstr(23, 0, "║┗━┻━┻━┛║┗━┻━┻━┛║┗━┻━┻━┛║", curses.color_pair(1))
-screen.addstr(24, 0, "╚═══════╩═══════╩═══════╝", curses.color_pair(1))
-screen.addstr(25, 0, "Please enter the place you want to go: ", curses.color_pair(1))
-screen.addstr(26, 0, "It is " + curPlayer + "'s turn", curses.color_pair(1))
-#Apply screen changes
-screen.refresh()
+def drawScreen():
+	global main, coordPlayed, move, curPlayer, levels
+	screen.addstr(0, 0, "╔═══════╦═══════╦═══════╗", curses.color_pair(1))
+	screen.addstr(1, 0, "║┏━┳━┳━┓║┏━┳━┳━┓║┏━┳━┳━┓║", curses.color_pair(1))
+	screen.addstr(2, 0, "║┃"displayNested(main.A1.A1)"┃"displayNested(main.A1.A2)"┃"displayNested(main.A1.A3)"┃║┃"displayNested(main.A2.A1)"┃"displayNested(main.A2.A2)"┃"displayNested(main.A2.A3)"┃║┃"displayNested(main.A3.A1)"┃"displayNested(main.A3.A2)"┃"displayNested(main.A3.A3)"┃║", curses.color_pair(1))
+	screen.addstr(3, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
+	screen.addstr(4, 0, "║┃"displayNested(main.A1.B1)"┃"displayNested(main.A1.B2)"┃"displayNested(main.A1.B3)"┃║┃"displayNested(main.A2.B1)"┃"displayNested(main.A2.B2)"┃"displayNested(main.A2.B3)"┃║┃"displayNested(main.A3.B1)"┃"displayNested(main.A3.B2)"┃"displayNested(main.A3.B3)"┃║", curses.color_pair(1))
+	screen.addstr(5, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
+	screen.addstr(6, 0, "║┃"displayNested(main.A1.C1)"┃"displayNested(main.A1.C2)"┃"displayNested(main.A1.C3)"┃║┃"displayNested(main.A2.C1)"┃"displayNested(main.A2.C2)"┃"displayNested(main.A2.C3)"┃║┃"displayNested(main.A3.C1)"┃"displayNested(main.A3.C2)"┃"displayNested(main.A3.C3)"┃║", curses.color_pair(1))
+	screen.addstr(7, 0, "║┗━┻━┻━┛║┗━┻━┻━┛║┗━┻━┻━┛║", curses.color_pair(1))
+	screen.addstr(8, 0, "╠═══════╬═══════╬═══════╣", curses.color_pair(1))
+	screen.addstr(9, 0, "║┏━┳━┳━┓║┏━┳━┳━┓║┏━┳━┳━┓║", curses.color_pair(1))
+	screen.addstr(10, 0, "║┃"displayNested(main.B1.A1)"┃"displayNested(main.B1.A2)"┃"displayNested(main.B1.A3)"┃║┃"displayNested(main.B2.A1)"┃"displayNested(main.B2.A2)"┃"displayNested(main.B2.A3)"┃║┃"displayNested(main.B3.A1)"┃"displayNested(main.B3.A2)"┃"displayNested(main.B3.A3)"┃║", curses.color_pair(1))
+	screen.addstr(11, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
+	screen.addstr(12, 0, "║┃"displayNested(main.B1.B1)"┃"displayNested(main.B1.B2)"┃"displayNested(main.B1.B3)"┃║┃"displayNested(main.B2.B1)"┃"displayNested(main.B2.B2)"┃"displayNested(main.B2.B3)"┃║┃"displayNested(main.B3.B1)"┃"displayNested(main.B3.B2)"┃"displayNested(main.B3.B3)"┃║", curses.color_pair(1))
+	screen.addstr(13, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
+	screen.addstr(14, 0, "║┃"displayNested(main.B1.C1)"┃"displayNested(main.B1.C2)"┃"displayNested(main.B1.C3)"┃║┃"displayNested(main.B2.C1)"┃"displayNested(main.B2.C2)"┃"displayNested(main.B2.C3)"┃║┃"displayNested(main.B3.C1)"┃"displayNested(main.B3.C2)"┃"displayNested(main.B3.C3)"┃║", curses.color_pair(1))
+	screen.addstr(15, 0, "║┗━┻━┻━┛║┗━┻━┻━┛║┗━┻━┻━┛║", curses.color_pair(1))
+	screen.addstr(16, 0, "╠═══════╬═══════╬═══════╣", curses.color_pair(1))
+	screen.addstr(17, 0, "║┏━┳━┳━┓║┏━┳━┳━┓║┏━┳━┳━┓║", curses.color_pair(1))
+	screen.addstr(18, 0, "║┃"displayNested(main.C1.A1)"┃"displayNested(main.C1.A2)"┃"displayNested(main.C1.A3)"┃║┃"displayNested(main.C2.A1)"┃"displayNested(main.C2.A2)"┃"displayNested(main.C2.A3)"┃║┃"displayNested(main.C3.A1)"┃"displayNested(main.C3.A2)"┃"displayNested(main.C3.A3)"┃║", curses.color_pair(1))
+	screen.addstr(19, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
+	screen.addstr(20, 0, "║┃"displayNested(main.C1.B1)"┃"displayNested(main.C1.B2)"┃"displayNested(main.C1.B3)"┃║┃"displayNested(main.C2.B1)"┃"displayNested(main.C2.B2)"┃"displayNested(main.C2.B3)"┃║┃"displayNested(main.C3.B1)"┃"displayNested(main.C3.B2)"┃"displayNested(main.C3.B3)"┃║", curses.color_pair(1))
+	screen.addstr(21, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
+	screen.addstr(22, 0, "║┃"displayNested(main.C1.C1)"┃"displayNested(main.C1.C2)"┃"displayNested(main.C1.C3)"┃║┃"displayNested(main.C2.C1)"┃"displayNested(main.C2.C2)"┃"displayNested(main.C2.C3)"┃║┃"displayNested(main.C3.C1)"┃"displayNested(main.C3.C2)"┃"displayNested(main.C3.C3)"┃║", curses.color_pair(1))
+	screen.addstr(23, 0, "║┗━┻━┻━┛║┗━┻━┻━┛║┗━┻━┻━┛║", curses.color_pair(1))
+	screen.addstr(24, 0, "╚═══════╩═══════╩═══════╝", curses.color_pair(1))
+	screen.addstr(25, 0, "Please enter the place you want to go: ", curses.color_pair(1))
+	screen.addstr(26, 0, "It is " + curPlayer + "'s turn", curses.color_pair(1))
+	#Apply screen changes
+	screen.refresh()
 	
 def winScreen(winner):
-	global main, coordPlayed, move, curPlayer
+	global main, coordPlayed, move, curPlayer, levels
 	screen.erase()
 	screen.addstr(0, 0, "             ", curses.color_pair(1))
 	screen.addstr(1, 0, "Congradulations   ", curses.color_pair(1))
@@ -172,11 +174,12 @@ def winScreen(winner):
 	endProg()
 
 def resetVars():
-	global main, coordPlayed, move, curPlayer
+	global main, coordPlayed, move, curPlayer, levels
 	main = grid()
 	coordPlayed = ["roof"]
 	move = 0
 	curPlayer = "X"
+	levels = 1
 
 def displayNested(coord):
 	if isinstance(coord, grid):
@@ -185,7 +188,8 @@ def displayNested(coord):
 		return coord
 
 def playerTurn():
-	global main, coordPlayed, move, curPlayer
+	global main, coordPlayed, move, curPlayer, levels
+	drawScreen()
 	screen.refresh()
 	square = screen.getkey(8, 40)
 	if square == "1":
