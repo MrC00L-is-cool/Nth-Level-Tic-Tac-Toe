@@ -1,6 +1,6 @@
 #Thanks to Asher Olsen for help
 #Set variables
-coordPlayed = ["main"]
+coordPlayed = []
 move = 0
 curPlayer = "X"
 levels = 2
@@ -131,9 +131,9 @@ def drawScreen():
 	global main, coordPlayed, move, curPlayer, levels
 	screen.addstr(0, 0, "╔═══════╦═══════╦═══════╗", curses.color_pair(1))
 	screen.addstr(1, 0, "║┏━┳━┳━┓║┏━┳━┳━┓║┏━┳━┳━┓║", curses.color_pair(1))
-	screen.addstr(2, 0, "║┃"displayNested(main.A1.A1)"┃"displayNested(main.A1.A2)"┃"displayNested(main.A1.A3)"┃║┃"displayNested(main.A2.A1)"┃"displayNested(main.A2.A2)"┃"displayNested(main.A2.A3)"┃║┃"displayNested(main.A3.A1)"┃"displayNested(main.A3.A2)"┃"displayNested(main.A3.A3)"┃║", curses.color_pair(1))
+	screen.addstr(2, 0, "║┃"displayNested(parseCoord(False).A1.A1)"┃"displayNested(parseCoord(False).A1.A2)"┃"displayNested(parseCoord(False).A1.A3)"┃║┃"displayNested(parseCoord(False).A2.A1)"┃"displayNested(parseCoord(False).A2.A2)"┃"displayNested(parseCoord(False).A2.A3)"┃║┃"displayNested(parseCoord(False).A3.A1)"┃"displayNested(parseCoord(False).A3.A2)"┃"displayNested(parseCoord(False).A3.A3)"┃║", curses.color_pair(1))
 	screen.addstr(3, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-	screen.addstr(4, 0, "║┃"displayNested(main.A1.B1)"┃"displayNested(main.A1.B2)"┃"displayNested(main.A1.B3)"┃║┃"displayNested(main.A2.B1)"┃"displayNested(main.A2.B2)"┃"displayNested(main.A2.B3)"┃║┃"displayNested(main.A3.B1)"┃"displayNested(main.A3.B2)"┃"displayNested(main.A3.B3)"┃║", curses.color_pair(1))
+	screen.addstr(4, 0, "║┃"displayNested(parseCoord(False).A1.B1)"┃"displayNested(parseCoord(False).A1.B2)"┃"displayNested(parseCoord(False).A1.B3)"┃║┃"displayNested(parseCoord(False).A2.B1)"┃"displayNested(parseCoord(False).A2.B2)"┃"displayNested(parseCoord(False).A2.B3)"┃║┃"displayNested(parseCoord(False).A3.B1)"┃"displayNested(parseCoord(False).A3.B2)"┃"displayNested(main.A3.B3)"┃║", curses.color_pair(1))
 	screen.addstr(5, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
 	screen.addstr(6, 0, "║┃"displayNested(main.A1.C1)"┃"displayNested(main.A1.C2)"┃"displayNested(main.A1.C3)"┃║┃"displayNested(main.A2.C1)"┃"displayNested(main.A2.C2)"┃"displayNested(main.A2.C3)"┃║┃"displayNested(main.A3.C1)"┃"displayNested(main.A3.C2)"┃"displayNested(main.A3.C3)"┃║", curses.color_pair(1))
 	screen.addstr(7, 0, "║┗━┻━┻━┛║┗━┻━┻━┛║┗━┻━┻━┛║", curses.color_pair(1))
@@ -181,6 +181,51 @@ def resetVars():
 	curPlayer = "X"
 	levels = 1
 
+def parseCoord(all):
+	global main, coordPlayed, move, curPlayer, levels
+	board = main
+	if all == False:
+		for i in coordPlayed[:-1]:
+			if i == 1:
+				board = board.A1
+			elif i == 2:
+				board = board.A2
+			elif i == 3:
+				board = board.A3
+			elif i == 4:
+				board = board.B1
+			elif i == 5:
+				board = board.B2
+			elif i == 6:
+				board = board.B3
+			elif i == 7:
+				board = board.C1
+			elif i == 8:
+				board = board.C2
+			elif i == 9:
+				board = board.C3
+	else:
+		for i in coordPlayed:
+			if i == 1:
+				board = board.A1
+			elif i == 2:
+				board = board.A2
+			elif i == 3:
+				board = board.A3
+			elif i == 4:
+				board = board.B1
+			elif i == 5:
+				board = board.B2
+			elif i == 6:
+				board = board.B3
+			elif i == 7:
+				board = board.C1
+			elif i == 8:
+				board = board.C2
+			elif i == 9:
+				board = board.C3
+	return board
+
 def displayNested(coord):
 	if isinstance(coord, grid):
 		return "~"
@@ -194,7 +239,7 @@ def playerTurn():
 	square = screen.getkey(8, 40)
 	if square == "1":
 		if isinstance({coordinate}, grid)
-			coordPlayed.append(A1)
+			coordPlayed.append(1)
 		else:
 			{coordinate}.A1 = curPlayer
 			screen.addstr(1, 3, curPlayer, curses.color_pair(4))
