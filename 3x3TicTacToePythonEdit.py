@@ -238,11 +238,13 @@ def playerTurn():
 	screen.refresh()
 	square = screen.getkey(8, 40)
 	if square == "1":
-		if isinstance({coordinate}, grid)
+		if isinstance(parseCoord(True).A1, grid):
 			coordPlayed.append(1)
+			playerTurn()
+		elif parseCoord(True).A1 == "?":
+			parseCoord(True).A1 = curPlayer
 		else:
-			{coordinate}.A1 = curPlayer
-			screen.addstr(1, 3, curPlayer, curses.color_pair(4))
+			playerTurn()
 	elif square == "2":
 		main.A2 = curPlayer
 		screen.addstr(1, 9, curPlayer, curses.color_pair(4))
@@ -267,7 +269,7 @@ def playerTurn():
 	elif square == "9":
 		main.C3 = curPlayer
 		screen.addstr(5, 15, curPlayer, curses.color_pair(4))
-	main.checkwin()
+	parseCoord(True).checkwin()
 	if main.solved == "X":
 		winScreen("X")
 	elif main.solved == "O":
