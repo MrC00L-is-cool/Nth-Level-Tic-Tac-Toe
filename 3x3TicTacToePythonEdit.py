@@ -304,14 +304,38 @@ def playerTurn():
 		else:
 			playerTurn()
 	elif square == "7":
-		main.C1 = curPlayer
-		screen.addstr(5, 3, curPlayer, curses.color_pair(4))
+		if isinstance(parseCoord(True).C1, grid):
+			if parseCoord(True).C1.solved != "no":
+				playerTurn()
+			else:
+				coordPlayed.append(7)
+				playerTurn()
+		elif parseCoord(True).C1 == "?":
+			parseCoord(True).C1 = curPlayer
+		else:
+			playerTurn()
 	elif square == "8":
-		main.C2 = curPlayer
-		screen.addstr(5, 9, curPlayer, curses.color_pair(4))
+		if isinstance(parseCoord(True).C2, grid):
+			if parseCoord(True).C2.solved != "no":
+				playerTurn()
+			else:
+				coordPlayed.append(8)
+				playerTurn()
+		elif parseCoord(True).C2 == "?":
+			parseCoord(True).C2 = curPlayer
+		else:
+			playerTurn()
 	elif square == "9":
-		main.C3 = curPlayer
-		screen.addstr(5, 15, curPlayer, curses.color_pair(4))
+		if isinstance(parseCoord(True).C3, grid):
+			if parseCoord(True).C3.solved != "no":
+				playerTurn()
+			else:
+				coordPlayed.append(9)
+				playerTurn()
+		elif parseCoord(True).C3 == "?":
+			parseCoord(True).C3 = curPlayer
+		else:
+			playerTurn()
 	parseCoord(True).checkwin()
 	if main.solved == "X":
 		winScreen("X")
