@@ -228,7 +228,14 @@ def parseCoord(all):
 
 def displayNested(coord):
 	if isinstance(coord, grid):
-		return "~"
+		if coord.solved == "X":
+			return "~"
+		elif coord.solved == "O":
+			return "O"
+		elif coord.solved == "smate"
+			return "!"
+		elif coord.solved == "no"
+			return "~"
 	else:
 		return coord
 
