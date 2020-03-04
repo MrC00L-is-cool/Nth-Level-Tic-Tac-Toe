@@ -239,27 +239,70 @@ def playerTurn():
 	square = screen.getkey(8, 40)
 	if square == "1":
 		if isinstance(parseCoord(True).A1, grid):
-			coordPlayed.append(1)
-			playerTurn()
+			if parseCoord(True).A1.solved != "no":
+				playerTurn()
+			else:
+				coordPlayed.append(1)
+				playerTurn()
 		elif parseCoord(True).A1 == "?":
 			parseCoord(True).A1 = curPlayer
 		else:
 			playerTurn()
 	elif square == "2":
-		main.A2 = curPlayer
-		screen.addstr(1, 9, curPlayer, curses.color_pair(4))
+		if isinstance(parseCoord(True).A2, grid):
+			if parseCoord(True).A2.solved != "no":
+				playerTurn()
+			else:
+				coordPlayed.append(2)
+				playerTurn()
+		elif parseCoord(True).A2 == "?":
+			parseCoord(True).A2 = curPlayer
+		else:
+			playerTurn()
 	elif square == "3":
-		main.A3 = curPlayer
-		screen.addstr(1, 15, curPlayer, curses.color_pair(4))
+		if isinstance(parseCoord(True).A3, grid):
+			if parseCoord(True).A3.solved != "no":
+				playerTurn()
+			else:
+				coordPlayed.append(3)
+				playerTurn()
+		elif parseCoord(True).A3 == "?":
+			parseCoord(True).A3 = curPlayer
+		else:
+			playerTurn()
 	elif square == "4":
-		main.B1 = curPlayer
-		screen.addstr(3, 3, curPlayer, curses.color_pair(4))
+		if isinstance(parseCoord(True).B1, grid):
+			if parseCoord(True).B1.solved != "no":
+				playerTurn()
+			else:
+				coordPlayed.append(4)
+				playerTurn()
+		elif parseCoord(True).B1 == "?":
+			parseCoord(True).B1 = curPlayer
+		else:
+			playerTurn()
 	elif square == "5":
-		main.B2 = curPlayer
-		screen.addstr(3, 9, curPlayer, curses.color_pair(4))
+		if isinstance(parseCoord(True).B2, grid):
+			if parseCoord(True).B2.solved != "no":
+				playerTurn()
+			else:
+				coordPlayed.append(5)
+				playerTurn()
+		elif parseCoord(True).B2 == "?":
+			parseCoord(True).B2 = curPlayer
+		else:
+			playerTurn()
 	elif square == "6":
-		main.B3 = curPlayer
-		screen.addstr(3, 15, curPlayer, curses.color_pair(4))
+		if isinstance(parseCoord(True).B3, grid):
+			if parseCoord(True).B3.solved != "no":
+				playerTurn()
+			else:
+				coordPlayed.append(6)
+				playerTurn()
+		elif parseCoord(True).B3 == "?":
+			parseCoord(True).B3 = curPlayer
+		else:
+			playerTurn()
 	elif square == "7":
 		main.C1 = curPlayer
 		screen.addstr(5, 3, curPlayer, curses.color_pair(4))
