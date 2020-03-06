@@ -344,6 +344,9 @@ def playerTurn():
 		else:
 			playerTurn()
 	parseCoord(True).checkwin()
+	if parseCoord(True).solved != "no":
+		coordPlayed = coordPlayed[:-1]
+		
 	if main.solved == "X":
 		winScreen("X")
 	elif main.solved == "O":
