@@ -110,7 +110,7 @@ if curses.has_colors():
 	#2nd Player
 	curses.init_pair(3, curses.COLOR_WHITE, curses.COLOR_RED)
 	#Selected
-	curses.init_pair(4, curses.COLOR_MAGENTA, curses.COLOR_BLACK)
+	curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_GREEN)
 else:
 	pass
 
@@ -133,7 +133,7 @@ def drawScreen():
 	screen.addstr(1, 0, "║┏━┳━┳━┓║┏━┳━┳━┓║┏━┳━┳━┓║", curses.color_pair(1))
 	screen.addstr(2, 0, "║┃"displayNested(parseCoord(False).A1.A1)"┃"displayNested(parseCoord(False).A1.A2)"┃"displayNested(parseCoord(False).A1.A3)"┃║┃"displayNested(parseCoord(False).A2.A1)"┃"displayNested(parseCoord(False).A2.A2)"┃"displayNested(parseCoord(False).A2.A3)"┃║┃"displayNested(parseCoord(False).A3.A1)"┃"displayNested(parseCoord(False).A3.A2)"┃"displayNested(parseCoord(False).A3.A3)"┃║", curses.color_pair(1))
 	screen.addstr(3, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
-	screen.addstr(4, 0, "║┃"displayNested(parseCoord(False).A1.B1)"┃"displayNested(parseCoord(False).A1.B2)"┃"displayNested(parseCoord(False).A1.B3)"┃║┃"displayNested(parseCoord(False).A2.B1)"┃"displayNested(parseCoord(False).A2.B2)"┃"displayNested(parseCoord(False).A2.B3)"┃║┃"displayNested(parseCoord(False).A3.B1)"┃"displayNested(parseCoord(False).A3.B2)"┃"displayNested(main.A3.B3)"┃║", curses.color_pair(1))
+	screen.addstr(4, 0, "║┃"displayNested(parseCoord(False).A1.B1)"┃"displayNested(parseCoord(False).A1.B2)"┃"displayNested(parseCoord(False).A1.B3)"┃║┃"displayNested(parseCoord(False).A2.B1)"┃"displayNested(parseCoord(False).A2.B2)"┃"displayNested(parseCoord(False).A2.B3)"┃║┃"displayNested(parseCoord(False).A3.B1)"┃"displayNested(parseCoord(False).A3.B2)"┃"displayNested(parseCoord(False).A3.B3)"┃║", curses.color_pair(1))
 	screen.addstr(5, 0, "║┣━╋━╋━┫║┣━╋━╋━┫║┣━╋━╋━┫║", curses.color_pair(1))
 	screen.addstr(6, 0, "║┃"displayNested(main.A1.C1)"┃"displayNested(main.A1.C2)"┃"displayNested(main.A1.C3)"┃║┃"displayNested(main.A2.C1)"┃"displayNested(main.A2.C2)"┃"displayNested(main.A2.C3)"┃║┃"displayNested(main.A3.C1)"┃"displayNested(main.A3.C2)"┃"displayNested(main.A3.C3)"┃║", curses.color_pair(1))
 	screen.addstr(7, 0, "║┗━┻━┻━┛║┗━┻━┻━┛║┗━┻━┻━┛║", curses.color_pair(1))
